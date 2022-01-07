@@ -1,4 +1,11 @@
 @extends('layouts.app')
+@section('page_title')
+    {{ "Show Role" }}
+@endsection
+
+@push('styles')
+    {{--- Page Styles Here ---}}
+@endpush
 
 @section('content')
     <div class="container">
@@ -64,17 +71,18 @@
                                 </tbody>
                             </table>
                         </div>
-
                         <a class="btn btn-warning" href="{{ route('roles.edit', $role) }}">
                             <i class="fas fa-edit"></i>
                             Edit
                         </a>
                     </div>
-{{--                    <div class="card-footer text-muted">--}}
-{{--                        2 days ago--}}
-{{--                    </div>--}}
                 </div>
             </div>
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    {{--- Page Scripts Here ---}}
+
+@endpush

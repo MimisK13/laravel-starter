@@ -1,5 +1,11 @@
 @extends('layouts.app')
+@section('page_title')
+    {{ "Edit User" }}
+@endsection
 
+@push('styles')
+    {{--- Page Styles Here ---}}
+@endpush
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -70,3 +76,8 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    {{--- Page Scripts Here ---}}
+
+@endpush

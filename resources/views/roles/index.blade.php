@@ -1,4 +1,11 @@
 @extends('layouts.app')
+@section('page_title')
+    {{ "Roles" }}
+@endsection
+
+@push('styles')
+    {{--- Page Styles Here ---}}
+@endpush
 
 @section('content')
     <div class="container">
@@ -84,3 +91,8 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    {{--- Page Scripts Here ---}}
+
+@endpush

@@ -4,7 +4,7 @@
 
 ## Quick Start
 
-- Clone the repo
+- ```bash git clone git@github.com:MimisK13/laravel-starter.git```
 - ```bash composer install```
 - ```bash npm install && npm run dev```
 - ```bash cp .env.example .env```

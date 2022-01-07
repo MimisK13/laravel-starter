@@ -6,6 +6,7 @@
 
 - Clone the repo
 - ```bash composer install```
+- ```bash npm install && npm run dev```
 - ```bash cp .env.example .env```
 - ```bash php artisan key:generate```
 - Create database

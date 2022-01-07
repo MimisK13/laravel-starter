@@ -16,6 +16,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -79,5 +80,7 @@
             @yield('content')
         </main>
     </div>
-</body>
+
+        <script src="https://kit.fontawesome.com/70a0f76303.js" crossorigin="anonymous"></script>
+    </body>
 </html>

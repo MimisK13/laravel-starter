@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Management;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
+use App\Models\Management\Role;
 use App\Http\Controllers\Controller;
-use Spatie\Permission\Models\Permission;
+use App\Models\Management\Permission;
 
 class RoleController extends Controller
 {

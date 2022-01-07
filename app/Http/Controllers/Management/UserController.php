@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Management;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
+use App\Models\Management\Role;
 use function bcrypt;
 use function redirect;
 use function view;

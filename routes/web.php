@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Permissions\RoleController;
-use App\Http\Controllers\Permissions\PermissionController;
+use App\Http\Controllers\Management\RoleController;
+use App\Http\Controllers\Management\UserController;
+use App\Http\Controllers\Management\PermissionController;
 
 /*
 |--------------------------------------------------------------------------

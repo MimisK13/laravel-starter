@@ -35,22 +35,7 @@ class UserController extends Controller
         $request->merge(['password' => bcrypt($request->get('password'))]);
 
         $validated = User::create($request->all())
-            ->syncRoles($request->get('roles'));
-
-        // Create the user
-//        if ( $user = User::create($request->except('roles', 'permissions')) ) {
-//            $this->syncPermissions($request, $user);
-//        }
-
-
-//        } else {
-//
-//        }
-
-        //User::assignRole($request->get('roles'));
-
-        //$user->syncRoles($request->get('roles'));
-        //$user->assignRole($request->get('roles'));
+            ->syncRoles($request->get('role'));
 
         return redirect()
             ->route('users.index')
@@ -60,20 +45,28 @@ class UserController extends Controller
     public function show(User $user)
     {
         return view('users.show', [
-            'user' => $user
+            'user' => $user,
+            'roles' => $user->getRoleNames(),
+            'permissions' => $user->getPermissionsViaRoles()
 	    ]);
     }
 
     public function edit(User $user)
     {
         return view('users.edit', [
-            'user' => $user
+            'user' => $user,
+            'roles' => Role::pluck('name', 'id')
         ]);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $user->update($request->all());
+        $user->syncRoles($request->get('role'));
+
+        return redirect()
+            ->route('users.index')
+            ->with('status', 'User successfully Updated!');
     }
 
     public function destroy(User $user)

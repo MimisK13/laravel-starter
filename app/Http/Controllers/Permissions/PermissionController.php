@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Permissions;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Spatie\Permission\Models\Permission;
@@ -11,7 +12,7 @@ class PermissionController extends Controller
     public function index()
     {
         return view('permissions.index', [
-            'permissions' => Permission::all()
+            'permissions' => Permission::paginate(10) // simplePaginate()
         ]);
     }
 
@@ -38,7 +39,9 @@ class PermissionController extends Controller
     public function show(Permission $permission)
     {
         return view('permissions.show', [
-            'permission' => $permission
+            'permission' => $permission,
+            'roles' => $permission->getRoleNames(),
+            'users' => User::permission($permission)->get()
         ]);
     }
 
@@ -51,7 +54,12 @@ class PermissionController extends Controller
 
     public function update(Request $request, Permission $permission)
     {
-        //
+        $permission->update($request->all());
+        $permission->syncPermissions();
+
+        return redirect()
+            ->route('permissions.index')
+            ->with('status', 'Role Permission successfully added!');
     }
 
     public function destroy(Permission $permission)

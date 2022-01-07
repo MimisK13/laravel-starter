@@ -19,17 +19,38 @@ class UserSeeder extends Seeder
     public function run()
     {
         $user = User::create([
-            'name' => 'admin',
+            'name' => 'Super Admin',
+            'email' => 'super-admin@admin.com',
+            'password' => Hash::make('password'),
+        ]);
+        $user->assignRole(1);
+
+        $user = User::create([
+            'name' => 'Admin',
             'email' => 'admin@admin.com',
             'password' => Hash::make('password'),
         ]);
+        $user->assignRole(2);
 
-        $role = Role::create(['name' => 'SuperAdmin']);
+        $user = User::create([
+            'name' => 'Moderator',
+            'email' => 'moderator@moderator.com',
+            'password' => Hash::make('password'),
+        ]);
+        $user->assignRole(3);
 
-        $permissions = Permission::pluck('id','id')->all();
+        $user = User::create([
+            'name' => 'User',
+            'email' => 'user@user.com',
+            'password' => Hash::make('password'),
+        ]);
+        $user->assignRole(4);
 
-        $role->syncPermissions($permissions);
-
-        $user->assignRole([$role->id]);
+        $user = User::create([
+            'name' => 'Banned',
+            'email' => 'banned@banned.com',
+            'password' => Hash::make('password'),
+        ]);
+        $user->assignRole(5);
     }
 }

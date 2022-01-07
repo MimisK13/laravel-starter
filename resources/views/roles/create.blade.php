@@ -23,7 +23,8 @@
                                 <div class="col-lg-6">
                                     <input type="text" class="form-control" name="name" id="name" placeholder="Role Name"
                                            value="{{ old('name') }}"
-                                           aria-label="Role Name">
+                                           aria-label="Role Name"
+                                    >
                                 </div>
                                 <div class="col-lg-6">
                                     <input type="text" class="form-control" name="guard_name" id="guard_name" placeholder="Guard Name"

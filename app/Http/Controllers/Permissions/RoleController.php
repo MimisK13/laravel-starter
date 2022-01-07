@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Permissions;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use App\Http\Controllers\Controller;
+use Spatie\Permission\Models\Permission;
 
 class RoleController extends Controller
 {
@@ -43,20 +44,30 @@ class RoleController extends Controller
     public function show(Role $role)
     {
         return view('roles.show', [
-            'role' => $role
+            'role' => $role,
+            'permissions' => $role->getPermissionNames(),
+            'users' =>  User::role($role)->get()
         ]);
     }
 
     public function edit(Role $role)
     {
         return view('roles.edit', [
-            'role' => $role
+            'role' => $role,
+            'permissions' => Permission::all('id', 'name'),
+            'selected' => $role->getAllPermissions()
         ]);
     }
 
     public function update(Request $request, Role $role)
     {
-        //
+        $role->update($request->all());
+        $permissions = $request->get('permissions', []);
+        $role->syncPermissions($permissions);
+
+        return redirect()
+            ->route('roles.index')
+            ->with('status', 'User Role successfully Updated!');
     }
 
     public function destroy(Role $role)

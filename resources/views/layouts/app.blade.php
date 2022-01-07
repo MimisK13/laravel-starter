@@ -55,6 +55,32 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    User Management
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    @can('view_users')
+                                        <a class="dropdown-item" href="{{ route('users.index') }}">
+                                            Users
+                                        </a>
+                                    @endcan
+
+                                    @can('view_roles')
+                                        <a class="dropdown-item" href="{{ route('roles.index') }}">
+                                            Roles
+                                        </a>
+                                    @endcan
+
+                                    @can('view_permissions')
+                                        <a class="dropdown-item" href="{{ route('permissions.index') }}">
+                                            Permissions
+                                        </a>
+                                    @endcan
+                                </div>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
@@ -77,6 +103,21 @@
         </nav>
 
         <main class="py-4">
+
+            @if (session('status'))
+                <div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert">
+                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
+                        <use xlink:href="#info-fill"/></svg>
+                    <div>
+                        {{ session('status') }}
+                    </div>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
+
+
             @yield('content')
         </main>
     </div>

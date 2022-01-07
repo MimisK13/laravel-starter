@@ -28,18 +28,20 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        //dd($request->all());
+
         $validated = $request->validate([
             'name' => 'bail|required|min:2',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
-            'roles' => 'required|min:1'
+            'role' => 'required|min:1'
         ]);
 
         // hash password
         $request->merge(['password' => bcrypt($request->get('password'))]);
 
-        $validated = User::create($request->all())
-            ->syncRoles($request->get('role'));
+        $validated = User::create($request->all());
+        $validated->syncRoles($request->get('role'));
 
         return redirect()
             ->route('users.index')

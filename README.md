@@ -13,6 +13,20 @@
 - ```bash artisan migrate --seed```
 - ```bash php artisan serve```
 
+```
+Super Admin
+- email: super-admin@admin.com
+- password: password
+
+Admin
+- email: admin@admin.com
+- password: password
+
+User
+- email: user@user.com
+- password: password
+```
+
 ## Contributing
 
 ## Code of Conduct

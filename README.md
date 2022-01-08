@@ -27,6 +27,11 @@ User
 - password: password
 ```
 
+<img src="Screenshots/1.png" width="100%" /><br />
+<img src="Screenshots/2.png" width="100%" /><br />
+<img src="Screenshots/3.png" width="100%" /><br />
+<img src="Screenshots/4.png" width="100%" /><br />
+
 ## Contributing
 
 ## Code of Conduct

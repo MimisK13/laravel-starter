@@ -26,12 +26,12 @@
                                         <span class="badge bg-primary">{{ $role->name }}</span>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>Guard</td>
-                                    <td>
-                                        <span class="badge bg-danger">{{ $role->guard_name }}</span>
-                                    </td>
-                                </tr>
+{{--                                <tr>--}}
+{{--                                    <td>Guard</td>--}}
+{{--                                    <td>--}}
+{{--                                        <span class="badge bg-danger">{{ $role->guard_name }}</span>--}}
+{{--                                    </td>--}}
+{{--                                </tr>--}}
                                 <tr>
                                     <td>Created</td>
                                     <td>

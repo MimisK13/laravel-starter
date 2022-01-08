@@ -43,7 +43,7 @@
                                     @enderror
                                 </div>
                             </div>
-
+{{---
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label @error('guard_name') text-danger @enderror"
                                        for="guard_name">
@@ -66,7 +66,7 @@
                                     @enderror
                                 </div>
                             </div>
-
+---}}
                             <div class="d-grid gap-2">
                                 <button type="submit" class="btn btn-primary">
                                     Update

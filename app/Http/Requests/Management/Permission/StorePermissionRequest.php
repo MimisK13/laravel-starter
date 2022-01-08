@@ -30,9 +30,9 @@ class StorePermissionRequest extends FormRequest
                 'min:3',
                 'max:255'
             ],
-            'guard_name' => [
-                'max:255'
-            ]
+//            'guard_name' => [
+//                'max:255'
+//            ]
         ];
     }
 }

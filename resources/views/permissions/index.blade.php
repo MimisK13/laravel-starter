@@ -33,7 +33,7 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Name</th>
-                                    <th scope="col">Guard</th>
+{{--                                    <th scope="col">Guard</th>--}}
                                     <th scope="col">Actions</th>
                                 </tr>
                                 </thead>
@@ -44,9 +44,9 @@
                                         <td class="col-md-4">
                                             <span class="badge bg-primary">{{ $permission->name }}</span>
                                         </td>
-                                        <td class="col-md-2">
-                                            <span class="badge bg-danger">{{ $permission->guard_name }}</span>
-                                        </td>
+{{--                                        <td class="col-md-2">--}}
+{{--                                            <span class="badge bg-danger">{{ $permission->guard_name }}</span>--}}
+{{--                                        </td>--}}
                                         <td class="col-md-3 col-lg-2">
                                             <form method="POST" action="{{ route('permissions.destroy', $permission) }}">
                                                 @can('show_permission')

@@ -30,10 +30,10 @@ class UpdateRoleRequest extends FormRequest
                 'min:3',
                 'max:255'
             ],
-            'guard_name' => [
-                'required',
-                'max:255'
-            ],
+//            'guard_name' => [
+//                'required',
+//                'max:255'
+//            ],
             'permissions' => [
                 'required',
                 'array'

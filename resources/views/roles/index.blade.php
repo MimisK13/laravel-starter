@@ -33,7 +33,7 @@
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">Name</th>
-                                        <th scope="col">Guard</th>
+{{--                                        <th scope="col">Guard</th>--}}
                                         <th scope="col">Permissions</th>
         {{--                                <th scope="col">Created at</th>--}}
         {{--                                <th scope="col">Updated at</th>--}}
@@ -47,11 +47,9 @@
                                             <td class="col-2">
                                                 <span class="badge bg-primary">{{ $role->name }}</span>
                                             </td>
-
-                                            <td class="col-1">
-{{--                                                {{ $role->guard_name }}--}}
-                                                <span class="badge bg-danger">{{ $role->guard_name }}</span>
-                                            </td>
+{{--                                            <td class="col-1">--}}
+{{--                                                <span class="badge bg-danger">{{ $role->guard_name }}</span>--}}
+{{--                                            </td>--}}
                                             <td>
                                                 @if(!empty($role->getPermissionNames()))
                                                     @foreach($role->getPermissionNames() as $permissions)

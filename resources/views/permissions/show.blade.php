@@ -27,14 +27,14 @@
                                         </span>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>Guard</td>
-                                    <td>
-                                        <span class="badge bg-danger">
-                                            {{ $permission->guard_name }}
-                                        </span>
-                                    </td>
-                                </tr>
+{{--                                <tr>--}}
+{{--                                    <td>Guard</td>--}}
+{{--                                    <td>--}}
+{{--                                        <span class="badge bg-danger">--}}
+{{--                                            {{ $permission->guard_name }}--}}
+{{--                                        </span>--}}
+{{--                                    </td>--}}
+{{--                                </tr>--}}
                                 <tr>
                                     <td>Created</td>
                                     <td>

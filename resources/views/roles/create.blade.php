@@ -44,29 +44,29 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label @error('guard_name') text-danger @enderror"
-                                       for="guard_name"
-                                >
-                                    Guard
-                                </label>
+{{--                            <div class="row mb-3">--}}
+{{--                                <label class="col-sm-2 col-form-label @error('guard_name') text-danger @enderror"--}}
+{{--                                       for="guard_name"--}}
+{{--                                >--}}
+{{--                                    Guard--}}
+{{--                                </label>--}}
 
-                                <div class="col-sm">
-                                    <input type="text"
-                                           class="form-control @error('guard_name') is-invalid @enderror"
-                                           name="guard_name"
-                                           id="guard_name"
-                                           value="{{ old('guard_name') }}"
-                                           aria-label="Guard Name"
-                                    >
+{{--                                <div class="col-sm">--}}
+{{--                                    <input type="text"--}}
+{{--                                           class="form-control @error('guard_name') is-invalid @enderror"--}}
+{{--                                           name="guard_name"--}}
+{{--                                           id="guard_name"--}}
+{{--                                           value="{{ old('guard_name') }}"--}}
+{{--                                           aria-label="Guard Name"--}}
+{{--                                    >--}}
 
-                                    @error('guard_name')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                            </div>
+{{--                                    @error('guard_name')--}}
+{{--                                        <div class="invalid-feedback">--}}
+{{--                                            {{ $message }}--}}
+{{--                                        </div>--}}
+{{--                                    @enderror--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
                             <div class="row mb-3">
                                 @foreach($permissions as $permission)

@@ -41,48 +41,48 @@
                                     @enderror
                                 </div>
                             </div>
+{{---
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label @error('guard_name') text-danger @enderror"
+                                           for="guard_name">
+                                        Guard
+                                    </label>
 
-                            <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label @error('guard_name') text-danger @enderror"
-                                       for="guard_name">
-                                    Guard
-                                </label>
 
+                                    <div class="col-sm-10">
+                                        <input type="text"
+                                               class="form-control @error('guard_name') is-invalid @enderror"
+                                               name="guard_name"
+                                               id="guard_name"
+                                               aria-describedby="guard_name"
+                                        >
 
-                                <div class="col-sm-10">
-                                    <input type="text"
-                                           class="form-control @error('guard_name') is-invalid @enderror"
-                                           name="guard_name"
-                                           id="guard_name"
-                                           aria-describedby="guard_name"
-                                    >
-
-                                    @error('guard_name')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                                        @error('guard_name')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
+---}}
+                                <div class="d-grid gap-2">
+                                    <button type="submit" class="btn btn-primary">
+                                        Create
+                                    </button>
 
-                            <div class="d-grid gap-2">
-                                <button type="submit" class="btn btn-primary">
-                                    Create
-                                </button>
-
-                                <a class="btn btn-outline-warning " href="{{ route('permissions.index') }}">
-                                    Cancel
-                                </a>
-                            </div>
-                        </form>
+                                    <a class="btn btn-outline-warning " href="{{ route('permissions.index') }}">
+                                        Cancel
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-@endsection
+    @endsection
 
-@push('scripts')
-    {{--- Page Scripts Here ---}}
+    @push('scripts')
+        {{--- Page Scripts Here ---}}
 
 @endpush

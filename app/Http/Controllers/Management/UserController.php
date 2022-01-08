@@ -35,7 +35,7 @@ class UserController extends Controller
 
         return redirect()
             ->route('users.index')
-            ->with('status', 'User successfully added!');
+            ->with('success', 'User successfully added!');
     }
 
     public function show(User $user)
@@ -63,7 +63,7 @@ class UserController extends Controller
 
         return redirect()
             ->route('users.index')
-            ->with('status', 'User successfully Updated!');
+            ->with('success', 'User successfully Updated!');
     }
 
     public function destroy(User $user)
@@ -72,6 +72,6 @@ class UserController extends Controller
 
         return redirect()
             ->route('users.index')
-            ->with('status', 'User successfully deleted!');
+            ->with('success', 'User successfully deleted!');
     }
 }

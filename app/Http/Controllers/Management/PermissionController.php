@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Management;
 
 use App\Models\User;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Management\Permission;
+use App\Http\Requests\Management\Permission\StorePermissionRequest;
+use App\Http\Requests\Management\Permission\UpdatePermissionRequest;
 
 class PermissionController extends Controller
 {
@@ -21,19 +22,13 @@ class PermissionController extends Controller
         return view('permissions.create');
     }
 
-    public function store(Request $request)
+    public function store(StorePermissionRequest $request)
     {
-        // TODO:
-        $validated = $request->validate([
-            'name' => 'required|unique:permissions|max:255',
-            'guard_name' => 'max:255'
-        ]);
-
-        $validated = Permission::create($request->all());
+        Permission::create($request->validated());
 
         return redirect()
             ->route('permissions.index')
-            ->with('status', 'Role Permission successfully added!');
+            ->with('success', 'Role Permission successfully added!');
     }
 
     public function show(Permission $permission)
@@ -52,14 +47,14 @@ class PermissionController extends Controller
         ]);
     }
 
-    public function update(Request $request, Permission $permission)
+    public function update(UpdatePermissionRequest $request, Permission $permission)
     {
         $permission->update($request->all());
         $permission->syncPermissions();
 
         return redirect()
             ->route('permissions.index')
-            ->with('status', 'Role Permission successfully added!');
+            ->with('success', 'Role Permission successfully added!');
     }
 
     public function destroy(Permission $permission)

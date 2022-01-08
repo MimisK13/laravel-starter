@@ -22,27 +22,48 @@
                             @csrf
 
                             <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label" for="name">Name</label>
+                                <label class="col-sm-2 col-form-label @error('name') text-danger @enderror"
+                                       for="name">
+                                    Name
+                                </label>
+
                                 <div class="col-sm-10">
                                     <input type="text"
-                                           class="form-control"
+                                           class="form-control @error('name') is-invalid @enderror"
                                            name="name"
                                            id="name"
                                            value="{{ old('name') ?: $permission->name }}"
                                            aria-describedby="name"
                                     >
+
+                                    @error('name')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
 
                             <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label" for="guard_name">Guard</label>
+                                <label class="col-sm-2 col-form-label @error('guard_name') text-danger @enderror"
+                                       for="guard_name">
+                                    Guard
+                                </label>
+
                                 <div class="col-sm-10">
                                     <input type="text"
-                                           class="form-control"
+                                           class="form-control @error('guard_name') is-invalid @enderror"
                                            name="guard_name"
                                            id="guard_name"
                                            value="{{ old('guard_name') ?: $permission->guard_name }}"
+                                           aria-describedby="guard_name"
                                     >
+
+                                    @error('guard_name')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
 

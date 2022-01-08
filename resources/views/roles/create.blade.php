@@ -21,21 +21,50 @@
                             @csrf
 
                             <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label" for="guard_name">Role</label>
+                                <label class="col-sm-2 col-form-label @error('name') text-danger @enderror"
+                                       for="guard_name"
+                                >
+                                    Role
+                                </label>
+
                                 <div class="col-sm">
-                                    <input type="text" class="form-control" name="name" id="name"
-                                           value="{{ old('name') }}"
-                                           aria-label="Role Name"
+                                    <input type="text"
+                                        class="form-control @error('name') is-invalid @enderror"
+                                        name="name"
+                                        id="name"
+                                        value="{{ old('name') }}"
+                                        aria-label="Role Name"
                                     >
+
+                                    @error('name')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
 
                             <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label" for="guard_name">Guard</label>
+                                <label class="col-sm-2 col-form-label @error('guard_name') text-danger @enderror"
+                                       for="guard_name"
+                                >
+                                    Guard
+                                </label>
+
                                 <div class="col-sm">
-                                    <input type="text" class="form-control" name="guard_name" id="guard_name"
+                                    <input type="text"
+                                           class="form-control @error('guard_name') is-invalid @enderror"
+                                           name="guard_name"
+                                           id="guard_name"
                                            value="{{ old('guard_name') }}"
-                                           aria-label="Guard Name">
+                                           aria-label="Guard Name"
+                                    >
+
+                                    @error('guard_name')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -43,11 +72,27 @@
                                 @foreach($permissions as $permission)
                                     <div class="col-sm-6 col-md-4 col-lg-4 col-xl-3">
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" name="permissions[]" id="{{ $permission->name }}" value="{{ $permission->id }}">
-                                            <label class="form-check-label" for="{{ $permission->name }}">{{ $permission->name }}</label>
+                                            <input type="checkbox"
+                                                   class="form-check-input @error('permissions') is-invalid @enderror"
+                                                   name="permissions[]"
+                                                   id="{{ $permission->name }}"
+                                                   value="{{ $permission->id }}"
+                                            >
+
+                                            <label for="{{ $permission->name }}"
+                                                   class="form-check-label @error('permissions') is-invalid @enderror"
+                                            >
+                                                {{ $permission->name }}
+                                            </label>
                                         </div>
                                     </div>
                                 @endforeach
+
+                                @error('permissions')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
 
 {{--                            <div class="row mb-3">--}}

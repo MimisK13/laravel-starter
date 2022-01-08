@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Management\Role;
 use App\Http\Controllers\Controller;
 use App\Models\Management\Permission;
+use App\Http\Requests\Management\Role\StoreRoleRequest;
+use App\Http\Requests\Management\Role\UpdateRoleRequest;
 
 class RoleController extends Controller
 {
@@ -24,21 +26,14 @@ class RoleController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(StoreRoleRequest $request)
     {
-        // TODO:
-        $validated = $request->validate([
-            'name' => 'required|unique:roles|max:255',
-            'guard_name' => 'max:255',
-            'permissions' => 'required'
-        ]);
-
-        $validated = Role::create(['name' => $request->get('name')]);
-        $validated->syncPermissions($request->get('permissions', []));
+        $role = Role::create(['name' => $request->input('name')]);
+        $role->syncPermissions($request->input('permissions'));
 
         return redirect()
             ->route('roles.index')
-            ->with('status', 'User Role successfully created!');
+            ->with('success', 'User Role successfully created!');
     }
 
     public function show(Role $role)
@@ -59,15 +54,15 @@ class RoleController extends Controller
         ]);
     }
 
-    public function update(Request $request, Role $role)
+    public function update(UpdateRoleRequest $request, Role $role)
     {
         $role->update($request->all());
-        $permissions = $request->get('permissions', []);
+        $permissions = $request->get('permissions');
         $role->syncPermissions($permissions);
 
         return redirect()
             ->route('roles.index')
-            ->with('status', 'User Role successfully Updated!');
+            ->with('success', 'User Role successfully updated!');
     }
 
     public function destroy(Role $role)
@@ -76,6 +71,6 @@ class RoleController extends Controller
 
         return redirect()
             ->route('roles.index')
-            ->with('status', 'User role successfully deleted!');
+            ->with('success', 'User role successfully deleted!');
     }
 }

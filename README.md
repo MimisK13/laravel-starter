@@ -3,6 +3,11 @@
 # Laravel Boilerplate Permissions
 Laravel + Laravel UI + User Roles & Permissions
 
+<img src="Screenshots/1.png" width="100%" /><br />
+<img src="Screenshots/2.png" width="100%" /><br />
+<img src="Screenshots/3.png" width="100%" /><br />
+<img src="Screenshots/4.png" width="100%" /><br />
+
 ## Quick Start
 - ```bash git clone git@github.com:MimisK13/laravel-starter.git```
 - ```bash composer install```
@@ -26,11 +31,6 @@ User
 - email: user@user.com
 - password: password
 ```
-
-<img src="Screenshots/1.png" width="100%" /><br />
-<img src="Screenshots/2.png" width="100%" /><br />
-<img src="Screenshots/3.png" width="100%" /><br />
-<img src="Screenshots/4.png" width="100%" /><br />
 
 ## Contributing
 

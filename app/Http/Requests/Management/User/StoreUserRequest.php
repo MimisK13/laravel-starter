@@ -2,9 +2,8 @@
 
 namespace App\Http\Requests\Management\User;
 
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Password;
-use function bcrypt;
+use Illuminate\Foundation\Http\FormRequest;
 
 class StoreUserRequest extends FormRequest
 {

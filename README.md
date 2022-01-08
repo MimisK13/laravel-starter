@@ -1,7 +1,7 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 # Laravel Boilerplate
-Laravel + Laravel UI + User Roles & Permissions
+Laravel + [Laravel UI](https://github.com/laravel/ui) + [spatie/laravel-permission](https://github.com/spatie/laravel-permission)
 
 <img src="Screenshots/1.png" width="100%" /><br />
 <img src="Screenshots/2.png" width="100%" /><br />

@@ -109,17 +109,27 @@
 
             <main class="py-4">
 
-                @if (session('status'))
-                    <div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert">
+                @if (session('success'))
+                    <div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert" id="alert-success">
                         <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
                             <use xlink:href="#info-fill"/></svg>
                         <div>
-                            {{ session('status') }}
+                            {{ session('success') }}
                         </div>
 
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
 
                 @yield('content')
             </main>

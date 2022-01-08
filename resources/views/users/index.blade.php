@@ -50,23 +50,27 @@
                                             @endif
                                         </td>
                                         <td>
-                                            @can('show_user')
-                                                <a class="btn btn-sm btn-outline-info" href="{{ route('users.show', $user) }}">
-                                                    <i class="fas fa-eye"></i>
-                                                </a>
-                                            @endcan
+                                            <form method="POST" action="{{ route('users.destroy', $user) }}">
+                                                @can('show_user')
+                                                    <a class="btn btn-sm btn-outline-info" href="{{ route('users.show', $user) }}">
+                                                        <i class="fas fa-eye"></i>
+                                                    </a>
+                                                @endcan
 
-                                            @can('edit_user')
-                                                <a class="btn btn-sm btn-outline-warning" href="{{ route('users.edit', $user) }}">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-                                            @endcan
+                                                @can('edit_user')
+                                                    <a class="btn btn-sm btn-outline-warning" href="{{ route('users.edit', $user) }}">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
+                                                @endcan
 
-                                            @can('delete_user')
-                                                <a class="btn btn-sm btn-outline-danger" href="{{ route('users.create') }}">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            @endcan
+                                                @can('delete_user')
+                                                    @method('DELETE')
+                                                    @csrf
+                                                    <button class="btn btn-sm btn-outline-danger" type="submit">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                @endcan
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach

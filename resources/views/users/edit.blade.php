@@ -9,7 +9,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-sm col-md-10 col-lg-7 col-xl-6">
                 <div class="card">
                     <div class="card-header">
                         Edit User
@@ -44,19 +44,33 @@
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label" for="password">Password</label>
                                 <div class="col-sm-10">
-                                    <input type="password" class="form-control" name="password" id="password">
+                                    <input type="password"
+                                           class="form-control"
+                                           name="password"
+                                           id="password"
+                                           value="{{ old('password') ?: $user->password }}"
+                                    >
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label" for="role">Role</label>
                                 <div class="col-sm-10">
-                                    <select class="form-select" name="role" aria-label="Default select example">
-                                        <option disabled selected>Select User Role...</option>
-                                        @foreach ($roles as $role => $name)
-                                            <option value="{{ $name }}" {{ ($role == 0) ? 'selected' : '' }}>
-                                                {{ $name }}
-                                            </option>
-                                        @endforeach
+                                    <select class="form-select" name="role" id="role" aria-label="Default select example">
+                                            {{--- v1 ---}}
+                                            @foreach ($roles as $role)
+                                                <option value="{{ $role->id }}" {{ ($selectedRoles[0] == $role->name) ? 'selected' : '' }}>
+                                                    {{ $role->name }}
+                                                </option>
+                                            @endforeach
+
+                                            {{--- v2 ---}}
+{{--                                        @foreach($roles as $role)--}}
+{{--                                            @if ($selected[0] == $role->name )--}}
+{{--                                                <option value="{{ $role->id }}" selected>{{ $role->name }}</option>--}}
+{{--                                            @else--}}
+{{--                                                <option value="{{ $role->id }}">{{ $role->name }}</option>--}}
+{{--                                            @endif--}}
+{{--                                        @endforeach--}}
                                     </select>
                                 </div>
                             </div>

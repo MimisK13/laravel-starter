@@ -48,15 +48,27 @@
                                             <span class="badge bg-danger">{{ $permission->guard_name }}</span>
                                         </td>
                                         <td class="col-md-3 col-lg-2">
-                                            <a class="btn btn-sm btn-outline-info" href="{{ route('permissions.show', $permission) }}">
-                                                <i class="fas fa-eye"></i>
-                                            </a>
-                                            <a class="btn btn-sm btn-outline-warning" href="{{ route('permissions.edit', $permission) }}">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
-                                            <a class="btn btn-sm btn-outline-danger" href="{{ route('permissions.create') }}">
-                                                <i class="fas fa-trash"></i>
-                                            </a>
+                                            <form method="POST" action="{{ route('permissions.destroy', $permission) }}">
+                                                @can('show_permission')
+                                                <a class="btn btn-sm btn-outline-info" href="{{ route('permissions.show', $permission) }}">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                @endcan
+
+                                                @can('edit_permission')
+                                                    <a class="btn btn-sm btn-outline-warning" href="{{ route('permissions.edit', $permission) }}">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
+                                                @endcan
+
+                                                @can('delete_permission')
+                                                    @method('DELETE')
+                                                    @csrf
+                                                    <button class="btn btn-sm btn-outline-danger" type="submit">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                @endcan
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach

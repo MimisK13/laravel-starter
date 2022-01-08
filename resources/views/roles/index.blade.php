@@ -10,7 +10,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-sm-12 col-md col-lg col-xl-10">
                 <div class="card">
                     <div class="card-header">
                         <div class="row align-content-between">
@@ -59,26 +59,28 @@
                                                     @endforeach
                                                 @endif
                                             </td>
-    {{--                                        <td>{{ $role->created_at }}</td>--}}
-    {{--                                        <td>{{ $role->updated_at }}</td>--}}
                                             <td class="col-md-3 col-lg-2">
-                                                <a class="btn btn-sm btn-outline-info" href="{{ route('roles.show', $role) }}">
-                                                    <i class="fas fa-eye"></i>
-                                                </a>
-                                                <a class="btn btn-sm btn-outline-warning" href="{{ route('roles.edit', $role) }}">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
                                                 <form method="POST" action="{{ route('roles.destroy', $role) }}">
-                                                @method('DELETE')
-                                                @csrf
-                                                    <button class="btn btn-sm btn-outline-danger" type="submit">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-{{--                                                <a class="btn btn-sm btn-outline-danger" href="{{ route('roles.destroy', $role) }}">--}}
-{{--                                                        <i class="fas fa-trash"></i>--}}
-{{--                                                    </a>--}}
-                                                </form>
+                                                    @can('show_role')
+                                                        <a class="btn btn-sm btn-outline-info" href="{{ route('roles.show', $role) }}">
+                                                            <i class="fas fa-eye"></i>
+                                                        </a>
+                                                    @endcan
 
+                                                    @can('edit_role')
+                                                        <a class="btn btn-sm btn-outline-warning" href="{{ route('roles.edit', $role) }}">
+                                                            <i class="fas fa-edit"></i>
+                                                        </a>
+                                                    @endcan
+
+                                                    @can('delete_role')
+                                                        @method('DELETE')
+                                                        @csrf
+                                                        <button class="btn btn-sm btn-outline-danger" type="submit">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    @endcan
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach

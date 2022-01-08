@@ -71,10 +71,15 @@
                                 </tbody>
                             </table>
                         </div>
-                        <a class="btn btn-warning" href="{{ route('roles.edit', $role) }}">
-                            <i class="fas fa-edit"></i>
-                            Edit
-                        </a>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">
+                                Edit
+                            </button>
+
+                            <a class="btn btn-outline-warning" href="{{ route('roles.index') }}">
+                                Back
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

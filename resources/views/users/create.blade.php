@@ -10,7 +10,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-sm col-md-10 col-lg-7 col-xl-6">
                 <div class="card">
                     <div class="card-header">
                         Create User

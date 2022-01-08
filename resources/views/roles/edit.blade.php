@@ -27,24 +27,27 @@
                             @method('PUT')
                             @csrf
 
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <input type="text" class="form-control" name="name" id="name" placeholder="Role Name"
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label" for="guard_name">Role</label>
+                                <div class="col-sm">
+                                    <input type="text" class="form-control" name="name" id="name"
                                            value="{{ old('name') ?: $role->name }}"
                                            aria-label="Role Name">
                                 </div>
-                                <div class="col-lg-6">
-                                    <input type="text" class="form-control" name="guard_name" id="guard_name" placeholder="Guard Name"
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label" for="guard_name">Guard</label>
+                                <div class="col-sm">
+                                    <input type="text" class="form-control" name="guard_name" id="guard_name"
                                            value="{{ old('guard_name') ?: $role->guard_name }}"
                                            aria-label="Guard Name">
                                 </div>
                             </div>
 
-                            <hr/>
-
-                            <div class="col-lg-12">
-
+                            <div class="row mb-3">
                                 @foreach($permissions as $permission => $selected)
+                                    <div class="col-sm-6 col-md-4 col-lg-4 col-xl-3">
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox"
                                                 name="permissions[]"
@@ -54,13 +57,18 @@
                                             />
                                             <label class="form-check-label" for="{{ $selected->name }}">{{ $selected->name }}</label>
                                         </div>
+                                    </div>
                                 @endforeach
                             </div>
 
-                            <hr/>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary">
+                                    Update
+                                </button>
 
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-success">Update</button>
+                                <a class="btn btn-outline-warning" href="{{ route('roles.index') }}">
+                                    Cancel
+                                </a>
                             </div>
                         </form>
 

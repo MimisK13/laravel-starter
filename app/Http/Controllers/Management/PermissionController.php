@@ -68,6 +68,6 @@ class PermissionController extends Controller
 
         return redirect()
             ->route('permissions.index')
-            ->with('status', 'Role permission successfully deleted!');
+            ->with('success', 'Role permission successfully deleted!');
     }
 }

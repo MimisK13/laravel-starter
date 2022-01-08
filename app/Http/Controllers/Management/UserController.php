@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Management;
 
+use App\Http\Requests\Management\User\UpdateUserRequest;
 use App\Models\User;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Management\Role;
-use function bcrypt;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Management\User\StoreUserRequest;
+
 use function redirect;
 use function view;
 
@@ -26,22 +28,10 @@ class UserController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        //dd($request->all());
-
-        $validated = $request->validate([
-            'name' => 'bail|required|min:2',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
-            'role' => 'required|min:1'
-        ]);
-
-        // hash password
-        $request->merge(['password' => bcrypt($request->get('password'))]);
-
-        $validated = User::create($request->all());
-        $validated->syncRoles($request->get('role'));
+        User::create($request->validated())
+            ->syncRoles($request->get('role'));
 
         return redirect()
             ->route('users.index')
@@ -61,11 +51,12 @@ class UserController extends Controller
     {
         return view('users.edit', [
             'user' => $user,
-            'roles' => Role::pluck('name', 'id')
+            'roles' => Role::all('id', 'name'),
+            'selectedRoles' => $user->getRoleNames()
         ]);
     }
 
-    public function update(Request $request, User $user)
+    public function update(UpdateUserRequest $request, User $user)
     {
         $user->update($request->all());
         $user->syncRoles($request->get('role'));

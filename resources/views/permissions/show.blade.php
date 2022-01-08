@@ -12,9 +12,9 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">
+                    <h5 class="card-header">
                         {{ $permission->name }}
-                    </div>
+                    </h5>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered align-middle">
@@ -76,7 +76,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <a class="btn btn-warning" href="{{ route('permissions.edit', $permission) }}">
+                        <a class="btn btn-outline-warning float-sm-start float-md-end" href="{{ route('permissions.edit', $permission) }}">
                             <i class="fas fa-edit"></i>
                             Edit
                         </a>

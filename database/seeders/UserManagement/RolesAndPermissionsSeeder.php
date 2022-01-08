@@ -62,27 +62,10 @@ class RolesAndPermissionsSeeder extends Seeder
             'edit_profile'
         ]);
 
-        $role = Role::create(['name' => 'moderator']);
-        $role->givePermissionTo([
-            'view_users',
-            'show_user',
-            'view_roles',
-            'show_role',
-            'view_permissions',
-            'show_permission',
-            'view_profile',
-            'edit_profile'
-        ]);
-
         $role = Role::create(['name' => 'user']);
         $role->givePermissionTo([
             'view_profile',
             'edit_profile'
-        ]);
-
-        $role = Role::create(['name' => 'banned']);
-        $role->givePermissionTo([
-            'view_profile',
         ]);
     }
 }

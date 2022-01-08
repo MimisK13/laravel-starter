@@ -33,24 +33,10 @@ class UserSeeder extends Seeder
         $user->assignRole(2);
 
         $user = User::create([
-            'name' => 'Moderator',
-            'email' => 'moderator@moderator.com',
-            'password' => Hash::make('password'),
-        ]);
-        $user->assignRole(3);
-
-        $user = User::create([
             'name' => 'User',
             'email' => 'user@user.com',
             'password' => Hash::make('password'),
         ]);
-        $user->assignRole(4);
-
-        $user = User::create([
-            'name' => 'Banned',
-            'email' => 'banned@banned.com',
-            'password' => Hash::make('password'),
-        ]);
-        $user->assignRole(5);
+        $user->assignRole(3);
     }
 }

@@ -15,7 +15,8 @@ Laravel + [Laravel UI](https://github.com/laravel/ui) + [spatie/laravel-permissi
 - ```composer install```
 - ```npm install && npm run dev```
 - ```php artisan key:generate```
-- ```artisan migrate --seed```
+- ```php artisan migrate --seed```
+- Uncomment ```AppServiceProvider``` >```View::share('userHasRoles', User::with('roles')->get());```
 - ```php artisan serve```
 
 ```

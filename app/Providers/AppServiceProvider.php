@@ -28,6 +28,6 @@ class AppServiceProvider extends ServiceProvider
     {
 		Schema::defaultStringLength(125);
 
-        View::share('userHasRoles', User::with('roles')->get());
+        //View::share('userHasRoles', User::with('roles')->get());
     }
 }

@@ -10,11 +10,12 @@ Laravel + [Laravel UI](https://github.com/laravel/ui) + [spatie/laravel-permissi
 
 ## Quick Start
 - ```git clone git@github.com:MimisK13/laravel-starter.git```
-- ```cp .env.example .env```
-- Create database
+- ```cd laravel-starter```
 - ```composer install```
-- ```npm install && npm run dev```
+- ```cp .env.example .env```
 - ```php artisan key:generate```
+- Create database
+- ```npm install && npm run dev```
 - ```php artisan migrate --seed```
 - Uncomment ```AppServiceProvider``` >```View::share('userHasRoles', User::with('roles')->get());```
 - ```php artisan serve```

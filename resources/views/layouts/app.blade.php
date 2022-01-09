@@ -56,7 +56,7 @@
                                     </li>
                                 @endif
                             @else
-                                @hasanyrole($userHasRoles)
+                                @can('access_user_management')
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         User Management
@@ -81,7 +81,7 @@
                                             </a>
                                         @endcan
                                     </div>
-                                    @endhasanyrole
+                                    @endcan
                                 </li>
 
                                 <li class="nav-item dropdown">

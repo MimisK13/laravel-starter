@@ -27,7 +27,5 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
 		Schema::defaultStringLength(125);
-
-        //View::share('userHasRoles', User::with('roles')->get());
     }
 }

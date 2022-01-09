@@ -17,7 +17,6 @@ Laravel + [Laravel UI](https://github.com/laravel/ui) + [spatie/laravel-permissi
 - Create database
 - ```npm install && npm run dev```
 - ```php artisan migrate --seed```
-- Uncomment ```AppServiceProvider``` >```View::share('userHasRoles', User::with('roles')->get());```
 - ```php artisan serve```
 
 ```

@@ -9,14 +9,14 @@ Laravel + [Laravel UI](https://github.com/laravel/ui) + [spatie/laravel-permissi
 <img src="Screenshots/4.png" width="100%" /><br />
 
 ## Quick Start
-- ```bash git clone git@github.com:MimisK13/laravel-starter.git```
-- ```bash composer install```
-- ```bash npm install && npm run dev```
-- ```bash cp .env.example .env```
-- ```bash php artisan key:generate```
+- ```git clone git@github.com:MimisK13/laravel-starter.git```
+- ```cp .env.example .env```
 - Create database
-- ```bash artisan migrate --seed```
-- ```bash php artisan serve```
+- ```composer install```
+- ```npm install && npm run dev```
+- ```php artisan key:generate```
+- ```artisan migrate --seed```
+- ```php artisan serve```
 
 ```
 Super Admin

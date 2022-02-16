@@ -13,7 +13,7 @@
             <div class="col-sm col-md-10 col-lg-8 col-xl-8">
                 <div class="card">
                     <div class="card-header">
-                        Create Role
+                        {{ __('Create Role') }}
                     </div>
 
                     <div class="card-body">
@@ -24,7 +24,7 @@
                                 <label class="col-sm-2 col-form-label @error('name') text-danger @enderror"
                                        for="guard_name"
                                 >
-                                    Role
+                                    {{ __('Role') }}
                                 </label>
 
                                 <div class="col-sm">
